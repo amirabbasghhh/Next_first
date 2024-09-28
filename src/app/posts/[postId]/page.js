@@ -9,7 +9,7 @@ async function PostPage({params}) {
   return (
     <div style={{marginInline:"40px",marginTop:'20px'}}>
         <p>PostPage</p>
-
+         <p style={{marginTop:'15px',marginBottom:'15px'}}>Title : {PostDetail.data.title}</p>
         <h1>Comments</h1>
         <hr style={{marginInline:'20px',marginTop:'30px'}} />
         {CommentsPost.map(comment =>(
