@@ -8,16 +8,20 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
 
+
 export default function PostsPage({ searchParams }) {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(searchParams.page ? parseInt(searchParams.page) : 1);
   const limit = 15;
 
+  
+ 
   const fetchPosts = async (currentPage) => {
     const response = await api.get(`posts?_page=${currentPage}&_limit=${limit}`);
     setPosts(response.data);
   };
+ 
 
   useEffect(() => {
     fetchPosts(page);
@@ -57,6 +61,7 @@ export default function PostsPage({ searchParams }) {
         ))}
       </Grid>
 
+     
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
         <Pagination 
           count={totalPages} 
