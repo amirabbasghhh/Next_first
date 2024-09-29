@@ -32,6 +32,7 @@ const PostComment = ({ postId, updateComments }) => {
   };
 
   const addHandler = async () => {
+    setOpen(false);
     if (
       send.body &&
       send.name &&
@@ -40,7 +41,6 @@ const PostComment = ({ postId, updateComments }) => {
       try {
         await api.post("comments", send);
         await updateComments(); // بروزرسانی کامنت‌ها
-        setOpen(false);
         Swal.fire({
           icon: "success",
           title: "Comment added successfully",
